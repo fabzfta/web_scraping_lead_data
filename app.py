@@ -41,7 +41,7 @@ distance = str(distance)
 st.write(f'{distance} m.')
 button_clicked = st.button("OK")
 
-API_KEY = 'AIzaSyCpDBQg4wM1tbqM1RtH6HpISFYH1wQp_Wo'
+API_KEY = 'AIzaSyAOJXTdwy4hJTae2_tsmcQ28kvEnSJ3iwQ'
 map_client = googlemaps.Client(API_KEY)
 
 g = geocoder.ip('me')
