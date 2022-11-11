@@ -78,6 +78,9 @@ if button_clicked:
         next_page_token = response.get('next_page_token')
 
     df = pd.DataFrame(business_list)
+    
+
+    st.dataframe(df['place_id'])
 
     json_list = []
     for place_id in df['place_id']:
@@ -130,7 +133,7 @@ if button_clicked:
 
     df = df[['name','phone_number','website','vicinity','plus_code','rating','types','user_ratings_total']]
     
-    df.to_excel('teste.xlsx')
+
 
 
     st.dataframe(df)
