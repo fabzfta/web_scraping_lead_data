@@ -93,7 +93,7 @@ if button_clicked:
         json_list.append(data['result'])
 
     json_values_list = []
-    for values in json_values_list:
+    for values in json_list:
         values = list(values.values())
         if values:
             print(values[0])
@@ -120,7 +120,6 @@ if button_clicked:
     for values in json_site_list:
         values = list(values.values())
         if values:
-            print(values[0])
             json_site_values_list.append(values[0])
         else:
             json_site_values_list.append(values)
@@ -130,6 +129,9 @@ if button_clicked:
     df = pd.concat([df, df_tel, df_site], axis=1)
 
     df = df[['name','phone_number','website','vicinity','plus_code','rating','types','user_ratings_total']]
+    
+    df.to_excel('teste.xlsx')
+
 
     st.dataframe(df)
     csv = convert_df(df)
