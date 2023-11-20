@@ -45,7 +45,7 @@ API_KEY = 'AIzaSyAOJXTdwy4hJTae2_tsmcQ28kvEnSJ3iwQ'
 map_client = googlemaps.Client(API_KEY)
 
 
-g = geocoder.ip('100.127.255.208')
+g = geocoder.ipinfo('100.127.255.208')
 
 lat_lon = g.latlng
 lat_lon_tuple = (lat_lon[0], lat_lon[1])
