@@ -10,6 +10,7 @@ import json
 import streamlit as st
 from pathlib import Path
 import streamlit_authenticator as stauth
+from streamlit.server.server import Server
 import yaml
 
 
@@ -29,6 +30,12 @@ def convert_df(df):
 local_css("style.css")
 remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
 
+def get_client_ip():
+    session = st.report_thread.get_report_ctx().session
+    if isinstance(session, Server):
+        return session.request.headers.get("X-Forwarded-For", None)
+    return None
+
 
 st.title('Lead Contact Search 🔎')
 selected = st.text_input(label='Search places nearby...')
@@ -44,7 +51,11 @@ button_clicked = st.button("OK")
 API_KEY = 'AIzaSyAOJXTdwy4hJTae2_tsmcQ28kvEnSJ3iwQ'
 map_client = googlemaps.Client(API_KEY)
 
-g = geocoder.ip('me')
+client_ip = get_client_ip()
+
+st.write(f'O endereço IP é: {client_ip}')
+
+g = geocoder.ip(client_ip)
 
 lat_lon = g.latlng
 lat_lon_tuple = (lat_lon[0], lat_lon[1])
