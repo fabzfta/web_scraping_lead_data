@@ -62,6 +62,9 @@ if button_clicked:
         radius = distance
     )
 
+    print(response)
+    st.title(response)
+
     business_list.extend(response.get('results'))
     next_page_token = response.get('next_page_token')
 
