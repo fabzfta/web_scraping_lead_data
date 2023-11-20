@@ -50,6 +50,9 @@ lat_lon = g.latlng
 lat_lon_tuple = (lat_lon[0], lat_lon[1])
 # Tornar latitude e longitude dinamico
 
+st.write(lat_lon_tuple)
+st.write(selected)
+st.write(distance)
 
 business_list = []
 
@@ -62,8 +65,7 @@ if button_clicked:
         radius = distance
     )
 
-    print(response)
-    st.title(response)
+    
 
     business_list.extend(response.get('results'))
     next_page_token = response.get('next_page_token')
