@@ -10,7 +10,7 @@ import json
 import streamlit as st
 from pathlib import Path
 import streamlit_authenticator as stauth
-from streamlit.server.server import Server
+from streamlit.web.server import Server
 import yaml
 
 
