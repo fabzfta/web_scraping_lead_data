@@ -48,6 +48,7 @@ g = geocoder.ip('me')
 
 lat_lon = g.latlng
 lat_lon_tuple = (lat_lon[0], lat_lon[1])
+# Tornar latitude e longitude dinamico
 
 
 business_list = []
@@ -80,7 +81,6 @@ if button_clicked:
     df = pd.DataFrame(business_list)
     
 
-    st.dataframe(df['place_id'])
 
     json_list = []
     for place_id in df['place_id']:
